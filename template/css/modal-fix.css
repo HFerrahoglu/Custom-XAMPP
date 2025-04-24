@@ -1,0 +1,58 @@
+/* Modal and settings panel fixes */
+
+/* Fix for settings panel transparency */
+#theme-modal {
+  background-color: rgba(0, 0, 0, 0.8) !important; /* Darker, more opaque background */
+  z-index: 1000 !important; /* Ensure it appears on top */
+}
+
+#theme-modal .bg-card-bg {
+  background-color: var(--card-bg) !important; /* Ensure solid background */
+  box-shadow: 0 0 20px var(--shadow-color) !important;
+  opacity: 1 !important;
+}
+
+/* Make modal content completely opaque */
+#theme-modal > div {
+  background-color: var(--card-bg) !important;
+  opacity: 1 !important;
+}
+
+/* Button color customization improvements */
+.btn.toggle.Stopped {
+  background-color: var(--notification-success) !important;
+  color: var(--btn-text-color) !important;
+}
+
+.btn.toggle.running {
+  background-color: var(--notification-error) !important;
+  color: var(--btn-text-color) !important;
+}
+
+.btn.config {
+  background-color: var(--notification-info) !important;
+  color: var(--btn-text-color) !important;
+}
+
+.btn.logs {
+  background-color: var(--notification-warning) !important;
+  color: var(--btn-text-color) !important;
+}
+
+/* All buttons should use the button text color */
+.btn {
+  color: var(--btn-text-color) !important;
+}
+
+/* Window title bar styling */
+.titlebar {
+  color: var(--window-title-color) !important;
+}
+
+/* Note: The maximize button is not shown by design in the app configuration */
+
+/* Ensure modal content is solid */
+.modal-content {
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+}

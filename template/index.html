@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XAMPP Control Panel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/modal-fix.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+    body {
+      font-family: 'Ubuntu';
+    }
+  </style>
+</head>
+<body>
+  <div class="w-full max-w-4xl rounded-lg border border-color card p-6 shadow-lg">
+    <header class="flex items-center justify-between mb-6">
+      <div class="flex items-center space-x-3">
+        <img alt="XAMPP logo" class="w-8 h-8 rounded" height="32" src="img/favicon.png" width="32" />
+        <h1 class="text-2xl font-normal select-none" style="color: var(--window-title-color);">XAMPP Control Panel</h1>
+      </div>
+      <div class="flex items-center space-x-3">
+        <button id="theme-toggle" aria-label="Toggle Theme" class="w-10 h-10 rounded-md btn flex items-center justify-center transition-colors duration-200">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button aria-label="Settings" class="w-10 h-10 rounded-md btn flex items-center justify-center transition-colors duration-200">
+          <i class="fas fa-cog"></i>
+        </button>
+      </div>
+    </header>
+    
+    <main>
+      <div class="space-y-3 mb-6">
+        <!-- Apache Service -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between rounded-md border border-color card p-4">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mb-3 sm:mb-0">
+            <div>
+              <p class="text-lg font-normal select-none">Apache</p>
+              <p class="text-secondary text-xs select-none">
+                <span id="apache-pid" class="pid"></span>
+                <span id="apache-port" class="port"></span>
+              </p>
+            </div>
+            <p id="apache-status" class="status Stopped text-[#e74c3c] text-lg font-normal select-none sm:ml-6">Stopped</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <button id="toggle-apache" class="btn toggle font-semibold rounded-md px-5 py-2 select-none transition-colors duration-200">Start</button>
+            <button id="config-apache" class="btn config font-semibold rounded-md px-5 py-2 select-none transition-colors duration-200"><i class="fas fa-cog mr-1"></i>Config</button>
+            <button id="logs-apache" class="btn logs font-semibold rounded-md px-5 py-2 select-none transition-colors duration-200"><i class="fas fa-file-alt mr-1"></i>Logs</button>
+          </div>
+        </div>
+        
+        <!-- MySQL Service -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between rounded-md border border-color card p-4">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mb-3 sm:mb-0">
+            <div>
+              <p class="text-lg font-normal select-none">MySQL</p>
+              <p class="text-secondary text-xs select-none">
+                <span id="mysql-pid" class="pid"></span>
+                <span id="mysql-port" class="port"></span>
+              </p>
+            </div>
+            <p id="mysql-status" class="status Stopped text-[#e74c3c] text-lg font-normal select-none sm:ml-6">Stopped</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <button id="toggle-mysql" class="btn toggle font-semibold rounded-md px-5 py-2 select-none transition-colors duration-200">Start</button>
+            <button id="config-mysql" class="btn config font-semibold rounded-md px-5 py-2 select-none transition-colors duration-200"><i class="fas fa-cog mr-1"></i>Config</button>
+            <button id="logs-mysql" class="btn logs font-semibold rounded-md px-5 py-2 select-none transition-colors duration-200"><i class="fas fa-file-alt mr-1"></i>Logs</button>
+          </div>
+        </div>
+        
+        <!-- FileZilla Service -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between rounded-md border border-color card p-4">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mb-3 sm:mb-0">
+            <div>
+              <p class="text-lg font-normal select-none">FileZilla</p>
+              <p class="text-secondary text-xs select-none">
+                <span id="filezilla-pid" class="pid"></span>
+                <span id="filezilla-port" class="port"></span>
+              </p>
+            </div>
+            <p id="filezilla-status" class="status Stopped text-[#e74c3c] text-lg font-normal select-none sm:ml-6">Stopped</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <button id="toggle-filezilla" class="btn toggle font-semibold rounded-md px-5 py-2 select-none transition-colors duration-200">Start</button>
+            <button id="config-filezilla" class="btn config font-semibold rounded-md px-5 py-2 select-none transition-colors duration-200"><i class="fas fa-cog mr-1"></i>Config</button>
+            <button id="logs-filezilla" class="btn logs font-semibold rounded-md px-5 py-2 select-none transition-colors duration-200"><i class="fas fa-file-alt mr-1"></i>Logs</button>
+          </div>
+        </div>
+        
+        <!-- Mercury Service -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between rounded-md border border-color card p-4">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mb-3 sm:mb-0">
+            <div>
+              <p class="text-lg font-normal select-none">Mercury</p>
+              <p class="text-secondary text-xs select-none">
+                <span id="mercury-pid" class="pid"></span>
+                <span id="mercury-port" class="port"></span>
+              </p>
+            </div>
+            <p id="mercury-status" class="status Stopped text-[#e74c3c] text-lg font-normal select-none sm:ml-6">Stopped</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <button id="toggle-mercury" class="btn toggle font-semibold rounded-md px-5 py-2 select-none transition-colors duration-200">Start</button>
+            <button id="config-mercury" class="btn config font-semibold rounded-md px-5 py-2 select-none transition-colors duration-200"><i class="fas fa-cog mr-1"></i>Config</button>
+            <button id="logs-mercury" class="btn logs font-semibold rounded-md px-5 py-2 select-none transition-colors duration-200"><i class="fas fa-file-alt mr-1"></i>Logs</button>
+          </div>
+        </div>
+        
+        <!-- Tomcat Service -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between rounded-md border border-color card p-4">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mb-3 sm:mb-0">
+            <div>
+              <p class="text-lg font-normal select-none">Tomcat</p>
+              <p class="text-secondary text-xs select-none">
+                <span id="tomcat-pid" class="pid"></span>
+                <span id="tomcat-port" class="port"></span>
+              </p>
+            </div>
+            <p id="tomcat-status" class="status Stopped text-[#e74c3c] text-lg font-normal select-none sm:ml-6">Stopped</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <button id="toggle-tomcat" class="btn toggle font-semibold rounded-md px-5 py-2 select-none transition-colors duration-200">Start</button>
+            <button id="config-tomcat" class="btn config font-semibold rounded-md px-5 py-2 select-none transition-colors duration-200"><i class="fas fa-cog mr-1"></i>Config</button>
+            <button id="logs-tomcat" class="btn logs font-semibold rounded-md px-5 py-2 select-none transition-colors duration-200"><i class="fas fa-file-alt mr-1"></i>Logs</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <footer class="text-center mt-6">
+      <p class="text-secondary text-sm">HFerrahoglu - Custom XAMPP Control Panel</p>
+    </footer>
+  </div>
+  
+  <div id="notification" class="fixed bottom-4 right-4 bg-[#3498db] text-white p-4 rounded-md shadow-lg flex items-center justify-between min-w-[300px] hidden">
+    <span id="notification-message"></span>
+    <button id="close-notification" class="ml-4 text-xl font-bold hover:text-gray-200">×</button>
+  </div>
+  
+  <script src="./../renderer.js"></script>
+</body>
+</html>

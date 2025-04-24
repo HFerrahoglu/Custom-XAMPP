@@ -1,0 +1,24 @@
+{
+  "id": "blue-ocean",
+  "name": "Blue Ocean",
+  "author": "HFerrahoglu",
+  "description": "A calming blue theme for XAMPP Control Panel",
+  "colors": {
+    "bg-color": "#1a2b3c",
+    "card-bg": "#203040",
+    "border-color": "#2c3e50",
+    "text-color": "#ecf0f1",
+    "text-secondary": "#95a5a6",
+    "btn-bg": "#2980b9",
+    "btn-hover": "#3498db",
+    "btn-text-color": "#ffffff",
+    "window-title-color": "#ff1414",
+    "status-running": "#27ae60",
+    "status-Stopped": "#e2c9c6",
+    "notification-info": "#3498db",
+    "notification-success": "#2ecc71",
+    "notification-warning": "#f39c12",
+    "notification-error": "#e74c3c",
+    "shadow-color": "#0a1520"
+  }
+}

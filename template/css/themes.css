@@ -1,0 +1,131 @@
+/* Theme definitions for XAMPP Control Panel */
+
+/* Dark Theme (Default) */
+:root[data-theme="dark"] {
+  --bg-color: #1f2128;
+  --card-bg: #22252d;
+  --border-color: #2a2d34;
+  --text-color: #ffffff;
+  --text-secondary: #8a8f9a;
+  --btn-bg: #2a2d34;
+  --btn-hover: #3a3f4a;
+  --btn-text-color: #ffffff;
+  --window-title-color: #ffffff;
+  --status-running: #3a8a6f;
+  --status-Stopped: #e74c3c;
+  --notification-info: #3498db;
+  --notification-success: #2ecc71;
+  --notification-warning: #f39c12;
+  --notification-error: #e74c3c;
+  --shadow-color: #0a0a0a;
+}
+
+/* Light Theme */
+:root[data-theme="light"] {
+  --bg-color: #f5f7fa;
+  --card-bg: #ffffff;
+  --border-color: #e1e4e8;
+  --text-color: #333333;
+  --text-secondary: #6c757d;
+  --btn-bg: #e9ecef;
+  --btn-hover: #dee2e6;
+  --btn-text-color: #333333;
+  --window-title-color: #333333;
+  --status-running: #28a745;
+  --status-Stopped: #dc3545;
+  --notification-info: #17a2b8;
+  --notification-success: #28a745;
+  --notification-warning: #ffc107;
+  --notification-error: #dc3545;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Apply theme variables */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  box-shadow: 0 0 20px var(--shadow-color);
+}
+
+/* General button styles */
+.btn {
+  background-color: var(--btn-bg);
+  color: var(--btn-text-color);
+}
+
+.btn:hover {
+  background-color: var(--btn-hover);
+}
+
+/* Button styles with theme variables */
+.btn.toggle.Stopped {
+  background-color: var(--btn-start-bg);
+  color: var(--btn-start-text);
+}
+
+.btn.toggle.running {
+  background-color: var(--btn-stop-bg);
+  color: var(--btn-stop-text);
+}
+
+.btn.config {
+  background-color: var(--btn-config-bg);
+  color: var(--btn-config-text);
+}
+
+.btn.logs {
+  background-color: var(--btn-logs-bg);
+  color: var(--btn-logs-text);
+}
+
+/* Button hover styles with theme variables */
+.btn.toggle.Stopped:hover {
+  background-color: var(--btn-start-hover);
+}
+
+.btn.toggle.running:hover {
+  background-color: var(--btn-stop-hover);
+}
+
+.btn.config:hover {
+  background-color: var(--btn-config-hover);
+}
+
+.btn.logs:hover {
+  background-color: var(--btn-logs-hover);
+}
+
+.status.running {
+  color: var(--status-running);
+}
+
+.status.Stopped {
+  color: var(--status-Stopped);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+/* Notification colors */
+.notification-info {
+  background-color: var(--notification-info);
+}
+
+.notification-success {
+  background-color: var(--notification-success);
+}
+
+.notification-warning {
+  background-color: var(--notification-warning);
+}
+
+.notification-error {
+  background-color: var(--notification-error);
+}

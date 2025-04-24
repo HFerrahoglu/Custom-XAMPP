@@ -1,0 +1,28 @@
+{
+  "name": "custom-xampp",
+  "version": "1.0.0",
+  "description": "Custom XAMPP Control Panel for managing Apache and MySQL services",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "xampp",
+    "control-panel",
+    "electron",
+    "apache",
+    "mysql"
+  ],
+  "author": "HFerrahoglu",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^28.0.0",
+    "electron-store": "^8.1.0",
+    "find-process": "^1.4.7",
+    "ps-list": "^8.1.1"
+  },
+  "devDependencies": {
+    "electron-builder": "^24.6.4"
+  }
+}

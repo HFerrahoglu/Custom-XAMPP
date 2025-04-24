@@ -1,0 +1,22 @@
+{
+  "name": "Default Light",
+  "id": "default-light",
+  "author": "HFerrahoglu",
+  "description": "The default light theme for XAMPP Control Panel",
+  "colors": {
+    "bg-color": "#f5f7fa",
+    "card-bg": "#ffffff",
+    "border-color": "#e1e4e8",
+    "text-color": "#333333",
+    "text-secondary": "#6c757d",
+    "btn-bg": "#e9ecef",
+    "btn-hover": "#dee2e6",
+    "status-running": "#28a745",
+    "status-Stopped": "#dc3545",
+    "notification-info": "#17a2b8",
+    "notification-success": "#28a745",
+    "notification-warning": "#ffc107",
+    "notification-error": "#dc3545",
+    "shadow-color": "rgba(0, 0, 0, 0.1)"
+  }
+}

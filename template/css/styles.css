@@ -1,0 +1,298 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#theme-modal::-webkit-scrollbar {
+  display: none;
+  visibility: hidden;
+}
+
+#theme-modal {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+#theme-modal .modal-content::-webkit-scrollbar {
+  display: none;
+  visibility: hidden;
+}
+
+#theme-modal .modal-content {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+body {
+  font-family: 'Ubuntu';
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+  font-weight: 400;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--window-title-color);
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--window-title-color);
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 20px;
+}
+
+.service-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.service-header h2 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+}
+
+.status-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.status.running {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.status.Stopped {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.status.starting, .status.stopping {
+  background-color: #f39c12;
+  color: white;
+}
+
+.status.error {
+  background-color: #c0392b;
+  color: white;
+}
+
+.pid {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  margin-top: 5px;
+}
+
+.service-controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+
+.service-controls .btn {
+  flex: 1;
+  min-width: 80px;
+  text-align: center;
+}
+
+.btn.toggle.Stopped:hover {
+  background-color: var(--btn-start-hover);
+}
+
+.btn.toggle.running:hover {
+  background-color: var(--btn-stop-hover);
+}
+
+.btn.config:hover {
+  background-color: var(--btn-config-hover);
+}
+
+.btn.logs:hover {
+  background-color: var(--btn-logs-hover);
+}
+
+.btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+  color: var(--btn-text-color);
+}
+
+.btn.toggle.Stopped {
+  background-color: var(--btn-start-bg);
+  color: var(--btn-start-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn.toggle.Stopped::before {
+  font-family: 'Ubuntu';
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+.btn.toggle.running {
+  background-color: var(--btn-stop-bg);
+  color: var(--btn-stop-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn.toggle.running::before {
+  font-family: 'Ubuntu';
+  font-weight: 400;
+  margin-right: 5px;
+}
+
+.btn.config {
+  background-color: var(--btn-config-bg);
+  color: var(--btn-config-text);
+}
+
+.btn.logs {
+  background-color: var(--btn-logs-bg);
+  color: var(--btn-logs-text);
+}
+
+.btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.service-logs {
+  margin-top: 20px;
+}
+
+.service-logs h3 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.logs {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 10px;
+  border-radius: 4px;
+  height: auto;
+  overflow-y: auto;
+  font-family: 'Ubuntu';
+  font-weight: 400;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #3498db;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 300px;
+  z-index: 1000;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.notification.error {
+  background-color: #e74c3c;
+}
+
+.notification.success {
+  background-color: #2ecc71;
+}
+
+.notification.warning {
+  background-color: #f39c12;
+}
+
+.notification.hidden {
+  transform: translateY(100px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+#close-notification {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .services-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .status-indicator {
+    align-items: flex-start;
+    margin-top: 10px;
+  }
+}
